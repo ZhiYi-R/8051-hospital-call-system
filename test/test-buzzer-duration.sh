@@ -20,11 +20,11 @@ break sfr w 0x80
 set hw port[2] 0xff
 run
 step 10
-info hw port[3]
+ds 0xb0 0xb0
 step 950 ms
-info hw port[3]
+ds 0xb0 0xb0
 step 20 ms
-info hw port[3]
+ds 0xb0 0xb0
 quit
 EOF
 

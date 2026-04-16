@@ -7,9 +7,13 @@ TEST_TARGETS := \
 .PHONY: all objects clean test $(TEST_TARGETS)
 .PHONY: build
 
-# Fedora uses sdcc-sdcc and sdcc-ucsim_51, Ubuntu/Debian uses sdcc and ucsim_51
-SDCC ?= sdcc-sdcc
-UCSIM ?= sdcc-ucsim_51
+# Auto-detect common compiler and simulator command names across distros.
+# Ubuntu/Debian packages expose sdcc + s51, while Fedora commonly ships
+# sdcc-sdcc + sdcc-ucsim_51.
+AUTO_SDCC := $(firstword $(foreach cmd,sdcc sdcc-sdcc,$(if $(shell command -v $(cmd) 2>/dev/null),$(cmd))))
+AUTO_UCSIM := $(firstword $(foreach cmd,s51 ucsim_51 sdcc-ucsim_51,$(if $(shell command -v $(cmd) 2>/dev/null),$(cmd))))
+SDCC ?= $(if $(AUTO_SDCC),$(AUTO_SDCC),sdcc-sdcc)
+UCSIM ?= $(if $(AUTO_UCSIM),$(AUTO_UCSIM),sdcc-ucsim_51)
 UCSIM_CPU ?= 51
 TARGET ?= $(notdir $(CURDIR))
 BUILD_DIR ?= Build

@@ -15,19 +15,19 @@ cat <<EOF | sh "$SCRIPT_DIR/run-ucsim.sh"
 file "$TEST_OUTPUT"
 break sfr w 0x80
 run
-info hw port[0]
+ds 0x80 0x80
 delete 1
 set hw port[2] $BUTTON_MASK
 step 30 ms
 break sfr w 0x80
 set hw port[2] 0xff
 run
-info hw port[0]
+ds 0x80 0x80
 step 10
-info hw port[3]
+ds 0xb0 0xb0
 step 1200 ms
-info hw port[0]
-info hw port[3]
+ds 0x80 0x80
+ds 0xb0 0xb0
 quit
 EOF
 

@@ -29,11 +29,16 @@
 
 ```bash
 # Debian/Ubuntu
-sudo apt-get install sdcc
+sudo apt-get install sdcc sdcc-ucsim make
+
+# Fedora
+sudo dnf install sdcc sdcc-ucsim make
 
 # macOS
 brew install sdcc
 ```
+
+测试会自动探测常见的模拟器命令名，包括 Ubuntu/Debian 的 `s51`，以及其他环境里的 `ucsim_51` / `sdcc-ucsim_51`。
 
 ## 构建项目
 
