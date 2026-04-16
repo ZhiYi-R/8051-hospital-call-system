@@ -14,7 +14,7 @@ cat >"$COMMAND_FILE"
 
 # s51 (Ubuntu) doesn't need -t parameter, ucsim_51 (Fedora) does
 if echo "$UCSIM" | grep -q "s51"; then
-    "$UCSIM" -c "$COMMAND_FILE" >"$RAW_LOG"
+    "$UCSIM" -c "$COMMAND_FILE" </dev/null >"$RAW_LOG" 2>&1
 else
     "$UCSIM" -t "$UCSIM_CPU" -c "$COMMAND_FILE" >"$RAW_LOG"
 fi
