@@ -7,6 +7,7 @@ TEST_TARGETS := \
 .PHONY: all objects clean test $(TEST_TARGETS)
 .PHONY: build
 
+# Fedora uses sdcc-sdcc and sdcc-ucsim_51, Ubuntu/Debian uses sdcc and ucsim_51
 SDCC ?= sdcc-sdcc
 UCSIM ?= sdcc-ucsim_51
 UCSIM_CPU ?= 51
