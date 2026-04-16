@@ -45,7 +45,7 @@ __sbit __at(0x85) P0_5;
 __sbit __at(0x86) P0_6;
 __sbit __at(0x87) P0_7;
 
-__sbit __at(0x90) P1_0; 
+__sbit __at(0x90) P1_0;
 __sbit __at(0x91) P1_1;
 __sbit __at(0x92) P1_2;
 __sbit __at(0x93) P1_3;
@@ -79,7 +79,6 @@ __sfr __at(0xCB) RCAP2H;
 __sfr __at(0xCC) TL2;
 __sfr __at(0xCD) TH2;
 
-
 /*  BIT Registers  */
 /*  PSW  */
 __sbit __at(0xD7) CY;
@@ -88,7 +87,7 @@ __sbit __at(0xD5) F0;
 __sbit __at(0xD4) RS1;
 __sbit __at(0xD3) RS0;
 __sbit __at(0xD2) OV;
-__sbit __at(0xD0) P; //8052 only
+__sbit __at(0xD0) P; // 8052 only
 
 /*  TCON  */
 __sbit __at(0x8F) TF1;
@@ -102,7 +101,7 @@ __sbit __at(0x88) IT0;
 
 /*  IE  */
 __sbit __at(0xAF) EA;
-__sbit __at(0xAD) ET2; //8052 only
+__sbit __at(0xAD) ET2; // 8052 only
 __sbit __at(0xAC) ES;
 __sbit __at(0xAB) ET1;
 __sbit __at(0xAA) EX1;
@@ -139,8 +138,8 @@ __sbit __at(0x98) RI;
 
 /*  P1  */
 __sbit __at(0x91) T2EX; // 8052 only
-__sbit __at(0x90) T2; // 8052 only
-             
+__sbit __at(0x90) T2;   // 8052 only
+
 /*  T2CON  */
 __sbit __at(0xCF) TF2;
 __sbit __at(0xCE) EXF2;
