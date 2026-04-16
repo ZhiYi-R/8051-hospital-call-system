@@ -16,15 +16,13 @@ jobs:
     - name: Install SDCC
       run: |
         sudo apt-get update
-        sudo apt-get install -y sdcc
-        which sdcc
-        which ucsim || which s51 || which ucsim_51 || dpkg -L sdcc | grep bin
+        sudo apt-get install -y sdcc sdcc-ucsim
     
     - name: Build firmware
-      run: make build SDCC=sdcc UCSIM=ucsim_51
+      run: make build SDCC=sdcc UCSIM=s51
     
     - name: Run tests
-      run: make test SDCC=sdcc UCSIM=ucsim_51
+      run: make test SDCC=sdcc UCSIM=s51
     
     - name: Upload firmware artifact
       uses: actions/upload-artifact@v4
