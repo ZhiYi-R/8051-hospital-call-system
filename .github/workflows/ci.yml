@@ -17,6 +17,8 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y sdcc
+        which sdcc
+        which ucsim || which s51 || which ucsim_51 || dpkg -L sdcc | grep bin
     
     - name: Build firmware
       run: make build SDCC=sdcc UCSIM=ucsim_51
