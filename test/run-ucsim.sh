@@ -17,4 +17,4 @@ cat >"$COMMAND_FILE"
 # - Debian/Ubuntu: ucsim_51 (needs -t parameter)
 "$UCSIM" -t "$UCSIM_CPU" -c "$COMMAND_FILE" </dev/null >"$RAW_LOG" 2>&1 || true
 
-grep -E '^(P0|P3)[[:space:]]' "$RAW_LOG" >"$TEST_LOG"
+grep -E '^(P0|P3)[[:space:]]' "$RAW_LOG" >"$TEST_LOG" || true
