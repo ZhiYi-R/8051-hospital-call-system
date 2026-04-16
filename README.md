@@ -139,3 +139,7 @@ make clean
 本项目为单片机课程作业。
 
 注：`inc/reg52.h` 文件版权归 Keil Elektronik GmbH 和 Keil Software, Inc. 所有。
+
+## AI 使用声明
+
+本项目部分内容使用了 AI 辅助工具生成，详见 [AI_USAGE.md](AI_USAGE.md)。
