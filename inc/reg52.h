@@ -1,9 +1,9 @@
 /*--------------------------------------------------------------------------
 REG52.H
 
-Header file for generic 80C52 and 80C32 microcontroller.
-Copyright (c) 1988-2002 Keil Elektronik GmbH and Keil Software, Inc.
-All rights reserved.
+80C52 和 80C32 通用单片机头文件
+版权所有 (c) 1988-2002 Keil Elektronik GmbH and Keil Software, Inc.
+保留所有权利
 --------------------------------------------------------------------------*/
 
 #ifndef __REG52_H__
@@ -13,7 +13,7 @@ All rights reserved.
 #include "clangd_compat.h"
 #endif
 
-/*  BYTE Registers  */
+/*  字节寄存器  */
 __sfr __at(0x80) P0;
 __sfr __at(0x90) P1;
 __sfr __at(0xA0) P2;
@@ -72,24 +72,24 @@ __sbit __at(0xB5) P3_5;
 __sbit __at(0xB6) P3_6;
 __sbit __at(0xB7) P3_7;
 
-/*  8052 Extensions  */
+/*  8052 扩展寄存器  */
 __sfr __at(0xC8) T2CON;
 __sfr __at(0xCA) RCAP2L;
 __sfr __at(0xCB) RCAP2H;
 __sfr __at(0xCC) TL2;
 __sfr __at(0xCD) TH2;
 
-/*  BIT Registers  */
-/*  PSW  */
+/*  位寄存器  */
+/*  PSW - 程序状态字  */
 __sbit __at(0xD7) CY;
 __sbit __at(0xD6) AC;
 __sbit __at(0xD5) F0;
 __sbit __at(0xD4) RS1;
 __sbit __at(0xD3) RS0;
 __sbit __at(0xD2) OV;
-__sbit __at(0xD0) P; // 8052 only
+__sbit __at(0xD0) P; // 仅 8052
 
-/*  TCON  */
+/*  TCON - 定时器控制  */
 __sbit __at(0x8F) TF1;
 __sbit __at(0x8E) TR1;
 __sbit __at(0x8D) TF0;
@@ -99,16 +99,16 @@ __sbit __at(0x8A) IT1;
 __sbit __at(0x89) IE0;
 __sbit __at(0x88) IT0;
 
-/*  IE  */
+/*  IE - 中断使能  */
 __sbit __at(0xAF) EA;
-__sbit __at(0xAD) ET2; // 8052 only
+__sbit __at(0xAD) ET2; // 仅 8052
 __sbit __at(0xAC) ES;
 __sbit __at(0xAB) ET1;
 __sbit __at(0xAA) EX1;
 __sbit __at(0xA9) ET0;
 __sbit __at(0xA8) EX0;
 
-/*  IP  */
+/*  IP - 中断优先级  */
 __sbit __at(0xBD) PT2;
 __sbit __at(0xBC) PS;
 __sbit __at(0xBB) PT1;
@@ -116,7 +116,7 @@ __sbit __at(0xBA) PX1;
 __sbit __at(0xB9) PT0;
 __sbit __at(0xB8) PX0;
 
-/*  P3  */
+/*  P3 - 端口 3  */
 __sbit __at(0xB7) RD;
 __sbit __at(0xB6) WR;
 __sbit __at(0xB5) T1;
@@ -126,7 +126,7 @@ __sbit __at(0xB2) INT0;
 __sbit __at(0xB1) TXD;
 __sbit __at(0xB0) RXD;
 
-/*  SCON  */
+/*  SCON - 串口控制  */
 __sbit __at(0x9F) SM0;
 __sbit __at(0x9E) SM1;
 __sbit __at(0x9D) SM2;
@@ -136,11 +136,11 @@ __sbit __at(0x9A) RB8;
 __sbit __at(0x99) TI;
 __sbit __at(0x98) RI;
 
-/*  P1  */
-__sbit __at(0x91) T2EX; // 8052 only
-__sbit __at(0x90) T2;   // 8052 only
+/*  P1 - 端口 1  */
+__sbit __at(0x91) T2EX; // 仅 8052
+__sbit __at(0x90) T2;   // 仅 8052
 
-/*  T2CON  */
+/*  T2CON - 定时器 2 控制  */
 __sbit __at(0xCF) TF2;
 __sbit __at(0xCE) EXF2;
 __sbit __at(0xCD) RCLK;
