@@ -1,6 +1,15 @@
-.PHONY: all objects clean
+TEST_TARGETS := \
+	test-b1 test-b2 test-b3 test-b4 \
+	test-b5 test-b6 test-b7 test-b8 \
+	test-release-trigger test-display-replace \
+	test-buzzer-duration
+
+.PHONY: all objects clean test $(TEST_TARGETS)
+.PHONY: build
 
 SDCC ?= sdcc-sdcc
+UCSIM ?= sdcc-ucsim_51
+UCSIM_CPU ?= 51
 TARGET ?= $(notdir $(CURDIR))
 BUILD_DIR ?= Build
 
@@ -23,10 +32,21 @@ OBJECTS := $(patsubst %.c,$(BUILD_DIR)/%.rel,$(SOURCES))
 LINK_OBJECTS := $(patsubst $(BUILD_DIR)/%,%,$(OBJECTS))
 IHX_OUTPUT := $(BUILD_DIR)/$(TARGET).ihx
 OUTPUT := $(BUILD_DIR)/$(TARGET).hex
+TEST_DIR := test
 
-all: $(OUTPUT)
+all: build
+
+build: $(OUTPUT)
 
 objects: $(OBJECTS)
+
+test: build $(TEST_TARGETS)
+	@echo "All ucsim tests passed."
+
+$(TEST_TARGETS): $(OUTPUT)
+	mkdir -p $(BUILD_DIR)
+	UCSIM="$(UCSIM)" UCSIM_CPU="$(UCSIM_CPU)" TEST_OUTPUT="$(OUTPUT)" TEST_LOG="$(BUILD_DIR)/$@.log" \
+		sh $(TEST_DIR)/$@.sh
 
 $(OUTPUT): $(IHX_OUTPUT)
 	cp -f $< $@
