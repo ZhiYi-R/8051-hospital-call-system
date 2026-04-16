@@ -1,0 +1,8 @@
+CompileFlags:
+  Add:
+    - -xc
+    - -std=c11
+    - -Iinc
+    - -D__CLANGD_SDCC__=1
+    - -include
+    - inc/clangd_compat.h
